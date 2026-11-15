@@ -1,5 +1,22 @@
 const STORAGE_KEY = "namma-jeopardy-state-v2";
+const TEAMS_STORAGE_KEY = "namma-jeopardy-teams";
 const POINT_VALUES = [100, 200, 300, 400, 500];
+
+function loadTeams() {
+  try {
+    const raw = localStorage.getItem(TEAMS_STORAGE_KEY);
+    const teams = raw ? JSON.parse(raw) : [];
+    if (Array.isArray(teams) && teams.length > 0) return teams;
+  } catch (e) { /* ignore corrupt data */ }
+  return null;
+}
+
+const TEAMS = loadTeams();
+if (!TEAMS) {
+  // No teams were set up — send the host back to the intro page to add some.
+  window.location.href = "../";
+  throw new Error("Redirecting to team setup");
+}
 
 function loadState() {
   try {
@@ -29,7 +46,13 @@ function renderScoreboard() {
   TEAMS.forEach(team => {
     const chip = document.createElement("div");
     chip.className = "score-chip";
-    chip.innerHTML = `<span class="lbl">${team.label}</span><span>${state.scores[team.id] || 0}</span>`;
+    const lbl = document.createElement("span");
+    lbl.className = "lbl";
+    lbl.textContent = team.name;
+    const score = document.createElement("span");
+    score.textContent = state.scores[team.id] || 0;
+    chip.appendChild(lbl);
+    chip.appendChild(score);
     el.appendChild(chip);
   });
 }
@@ -113,7 +136,7 @@ function revealAnswer() {
   TEAMS.forEach(team => {
     const btn = document.createElement("button");
     btn.className = "award-btn";
-    btn.textContent = `${team.label} +${value}`;
+    btn.textContent = `${team.name} +${value}`;
     btn.addEventListener("click", () => awardPoints(team.id, value));
     row.appendChild(btn);
   });
@@ -139,13 +162,10 @@ document.getElementById("backFromAnswerBtn").addEventListener("click", () => sho
 document.getElementById("boardFinishBtn").addEventListener("click", () => showScreen("screen-closing"));
 
 document.getElementById("restartBtn").addEventListener("click", () => {
-  const scores = {};
-  TEAMS.forEach(t => scores[t.id] = 0);
-  state = { used: {}, scores };
-  saveState();
-  renderBoard();
-  renderScoreboard();
-  showScreen("screen-board");
+  // A brand new game starts from the intro page, where teams are (re)configured.
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(TEAMS_STORAGE_KEY);
+  window.location.href = "../";
 });
 
 // ---- lightweight reset confirm (not part of the original deck, kept minimal) ----

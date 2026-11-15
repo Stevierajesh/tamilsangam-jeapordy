@@ -207,10 +207,11 @@ img.art {
 
 .scorebar {
   position: absolute;
-  left: 6.6%; top: 1.0%; width: 86.775%; height: 3.2%;
+  left: 6.6%; top: 1.0%; width: 86.775%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 2%;
+  gap: 0.8%;
 }
 .score-chip {
   display: flex;
@@ -268,7 +269,7 @@ img.art {
 #screen-answer .footer-line { background: var(--purple-bright); height: calc(var(--u) * 0.0781); }
 #screen-answer .footer-text { font-weight: 700; text-transform: uppercase; color: var(--dark-caption); font-size: calc(var(--u) * 0.8854); }
 #screen-answer .award-heading { font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple-deep); font-size: calc(var(--u) * 1.1); opacity: 0.75; }
-#screen-answer .award-row { display: flex; gap: 1.2%; }
+#screen-answer .award-row { display: flex; flex-wrap: wrap; gap: 0.8%; row-gap: calc(var(--u) * 0.6); }
 #screen-answer .award-btn {
   position: relative;
   background: var(--purple-bright);

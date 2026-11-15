@@ -66,8 +66,5 @@ const BOARD_LAYOUT = {
   headerFontPt: [14, 13, 14, 14, 14],
 };
 
-const TEAMS = [
-  { id: "ts", label: "TS", full: "Tamil Sangam" },
-  { id: "ms", label: "MS", full: "Malayalee Society" },
-  { id: "ks", label: "KS", full: "Kannada Sangha" },
-];
+// Teams are no longer fixed — they're set up on the intro page (index.html)
+// and handed off via localStorage. See TEAMS_STORAGE_KEY in app.js.
