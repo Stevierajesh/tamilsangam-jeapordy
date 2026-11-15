@@ -52,6 +52,20 @@ const CATEGORIES = [
   },
 ];
 
+// Exact column positions / header colors reverse-engineered from slide 2 of the deck.
+const BOARD_LAYOUT = {
+  colX: [7.275, 24.6, 41.925, 59.25, 76.575],
+  colW: 16.425,
+  headerY: 24.4,
+  headerH: 9.333,
+  rowY: [35.2, 44.267, 53.333, 62.4, 71.467],
+  rowH: 7.867,
+  rowFill: ["491372", "561B85", "491372", "561B85", "491372"],
+  headerFill: ["8733BA", "D3249B", "FC485A", "FF8B58", "8733BA"],
+  headerText: ["FFFFFF", "FFFFFF", "FFFFFF", "2D0A55", "FFFFFF"],
+  headerFontPt: [14, 13, 14, 14, 14],
+};
+
 const TEAMS = [
   { id: "ts", label: "TS", full: "Tamil Sangam" },
   { id: "ms", label: "MS", full: "Malayalee Society" },

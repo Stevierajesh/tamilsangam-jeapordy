@@ -7,84 +7,127 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<div class="viewport">
 
-<svg class="bg-arch tl" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M100 10 L180 90 C190 100 190 110 190 120 L190 210 L10 210 L10 120 C10 110 10 100 20 90 Z" stroke="#FFD060" stroke-width="4"/>
-</svg>
-<svg class="bg-arch br" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M100 10 L180 90 C190 100 190 110 190 120 L190 210 L10 210 L10 120 C10 110 10 100 20 90 Z" stroke="#FFD060" stroke-width="4"/>
-</svg>
+  <!-- ============ TITLE SCREEN ============ -->
+  <div class="slide bg-title active" id="screen-title">
+    <div class="card frame"></div>
+    <div class="line topline box" style="left:3.675%;top:6.267%;width:18.075%;"></div>
+    <div class="line topline box" style="left:78.225%;top:6.267%;width:18.075%;"></div>
+    <img class="art box" src="assets/mandala.png" style="left:1.875%;top:7.467%;width:18.45%;height:32.8%;" />
+    <img class="art box" src="assets/mandala.png" style="left:79.425%;top:7.467%;width:18.45%;height:32.8%;" />
+    <img class="art box" src="assets/lotus.png" style="left:41.1%;top:1.733%;width:18%;height:18.56%;" />
 
-<div class="app">
-  <div class="topbar">
-    <div style="width:110px;"></div>
-    <div class="title-block">
-      <div class="eyebrow">Tamil &times; Kannada &times; Malayalam</div>
-      <h1>Namma Jeopardy!</h1>
-    </div>
-    <button class="reset-btn" id="resetBtn">Reset Game</button>
+    <div class="txt center eyebrow box" style="left:28.2%;top:21.067%;width:43.5%;height:4.133%;">TS &times; MS &times; KS</div>
+    <div class="txt center namma box" style="left:15%;top:27.6%;width:69.975%;height:7.333%;">NAMMA</div>
+    <div class="txt garamond center script-title box" style="left:10.725%;top:32.667%;width:78.6%;height:18%;">Jeopardy!</div>
+
+    <div class="line divider box" style="left:30.6%;top:53.733%;width:38.775%;"></div>
+    <div class="dot box" style="left:49.657%;top:53.187%;width:0.675%;height:1.2%;"></div>
+    <div class="dot box" style="left:48.862%;top:53.333%;width:0.45%;height:0.8%;"></div>
+    <div class="dot box" style="left:50.663%;top:53.333%;width:0.45%;height:0.8%;"></div>
+
+    <div class="txt garamond center tagline box" style="left:15.75%;top:56.8%;width:68.475%;height:6.667%;">The ultimate South Indian culture showdown</div>
+
+    <div class="card pillbar box" style="left:25.5%;top:68.4%;width:48.975%;height:6.933%;border:none;"></div>
+    <div class="txt center pillbar-text box" style="left:26.625%;top:68.933%;width:46.725%;height:5.867%;display:flex;align-items:center;justify-content:center;">MOVIES &bull; MUSIC &bull; FOOD &bull; CULTURE</div>
+    <div class="txt center sub-languages box" style="left:30%;top:77.733%;width:39.975%;height:5.733%;">TAMIL &times; KANNADA &times; MALAYALAM</div>
+
+    <img class="art box" src="assets/diya.png" style="left:6.225%;top:68.8%;width:12.525%;height:17.368%;" />
+    <img class="art box" src="assets/diya.png" style="left:81.3%;top:68.8%;width:12.525%;height:17.368%;" />
+
+    <button class="pill start-btn" id="startBtn" style="left:40%;top:88%;width:20%;height:6.5%;">Start Game</button>
   </div>
 
-  <div class="scoreboard" id="scoreboard"></div>
+  <!-- ============ BOARD SCREEN ============ -->
+  <div class="slide bg-dark" id="screen-board">
+    <div class="card frame1"></div>
+    <div class="card frame2"></div>
+    <div class="card frame3"></div>
+    <button id="boardResetBtn">Reset Game</button>
+    <button id="boardFinishBtn">Finish Game</button>
 
-  <div class="board" id="board"></div>
+    <div class="card grid-card"></div>
+    <div class="txt garamond center board-title box" style="left:8.625%;top:11.2%;width:82.725%;height:7.733%;">South Side Jeopardy</div>
+    <div class="txt center sparkle box" style="left:48.5%;top:17.6%;width:3%;height:2%;">&#10022;</div>
+    <div class="txt center board-sub box" style="left:10.5%;top:18.8%;width:78.975%;height:3.333%;">PICK A CATEGORY &amp; POINT VALUE</div>
 
-  <footer>Tamil Sangam &bull; Malayalee Society &bull; Kannada Sangha &mdash; Namma Deepavali</footer>
-</div>
+    <div class="scorebar" id="scoreboard"></div>
 
-<!-- Clue / Answer full-screen view -->
-<div class="clue-screen hidden" id="clueScreen">
-  <div class="clue-meta" id="clueMeta"></div>
+    <div id="boardGrid"></div>
 
-  <div id="clueStage">
-    <div class="clue-label">Your Clue</div>
-    <div class="clue-text" id="clueText"></div>
-    <div class="btn-row">
-      <button class="btn" id="revealBtn">Reveal Answer</button>
-      <button class="btn secondary" id="backFromClueBtn">Back to Board</button>
-    </div>
+    <div class="txt center board-footer box" style="left:8.625%;top:84.667%;width:82.725%;height:3.2%;">KS &times; MS &times; TS &nbsp;&nbsp;&bull;&nbsp;&nbsp; NAMMA DEEPAVALI</div>
   </div>
 
-  <div id="answerStage" style="display:none;">
-    <div class="clue-label">The Answer Is</div>
-    <div class="answer-block">
-      <div class="answer-text" id="answerText"></div>
-      <div class="answer-tag" id="answerTag"></div>
-    </div>
+  <!-- ============ CLUE SCREEN ============ -->
+  <div class="slide bg-dark" id="screen-clue">
+    <div class="card outer"></div>
+    <img class="art mandala-big box" src="assets/mandala.png" />
+    <img class="art mandala-small box" src="assets/mandala.png" />
+    <img class="art diya box" src="assets/diya.png" />
 
-    <div class="award-heading">Who got it right?</div>
-    <div class="award-row" id="awardRow"></div>
+    <div class="txt meta box" id="clueMeta" style="left:7.05%;top:11.467%;width:60%;height:4.267%;"></div>
+    <div class="pill clue-tag static box" style="left:7.05%;top:19.867%;width:12.9%;height:6.4%;">Your Clue</div>
+    <div class="txt garamond clue-body box" id="clueBody" style="left:6.525%;top:30%;width:61.125%;height:31.333%;"></div>
 
-    <div class="back-btn-wrap">
-      <button class="btn secondary" id="backFromAnswerBtn">Back to Board</button>
-    </div>
+    <div class="line divider-line box" style="left:7.2%;top:65.467%;width:59.25%;"></div>
+    <div class="dot box" style="left:36.495%;top:64.92%;width:0.675%;height:1.2%;"></div>
+    <div class="dot box" style="left:35.7%;top:65.067%;width:0.45%;height:0.8%;"></div>
+    <div class="dot box" style="left:37.5%;top:65.067%;width:0.45%;height:0.8%;"></div>
+
+    <div class="txt lock-label box" style="left:7.125%;top:72.133%;width:36.375%;height:4%;">Lock in your answer</div>
+    <button class="pill reveal-btn box" id="revealBtn" style="left:40.65%;top:77.2%;width:22.875%;height:7.867%;">Reveal Answer</button>
+
+    <div class="line footer-line box" style="left:5.4%;top:90.533%;width:89.175%;"></div>
+    <div class="txt footer-text box" style="left:5.55%;top:91.467%;width:26.25%;height:3.6%;">Namma Deepavali</div>
+    <div class="txt right footer-text box" id="clueNum" style="left:91.35%;top:91.467%;width:3.075%;height:3.6%;"></div>
   </div>
-</div>
 
-<!-- Reset confirmation modal -->
-<div class="modal-overlay hidden" id="resetModal">
-  <div class="modal">
-    <p>Reset the whole game? This clears every used clue and all team scores.</p>
-    <div class="btn-row">
-      <button class="btn" id="confirmResetBtn">Yes, Reset</button>
-      <button class="btn secondary" id="cancelResetBtn">Cancel</button>
-    </div>
-  </div>
-</div>
+  <!-- ============ ANSWER SCREEN ============ -->
+  <div class="slide bg-dark" id="screen-answer">
+    <div class="card outer"></div>
+    <div class="card side-panel box"></div>
+    <div class="art-wrap box" style="left:62.175%;top:11.333%;width:30%;height:73.2%;"><img class="art" src="assets/arch.png" /></div>
+    <div class="art-wrap box" style="left:65.85%;top:31.6%;width:23.1%;height:32.032%;"><img class="art" src="assets/diya.png" /></div>
 
-<!-- Manual score adjust modal -->
-<div class="modal-overlay hidden" id="scoreModal">
-  <div class="modal">
-    <p id="scoreModalLabel"></p>
-    <div class="score-adjust-row">
-      <button id="scoreMinus">&minus;</button>
-      <div class="value" id="scoreModalValue">0</div>
-      <button id="scorePlus">+</button>
-    </div>
-    <div class="btn-row">
-      <button class="btn secondary" id="closeScoreModal">Done</button>
-    </div>
+    <div class="txt meta box" id="ansMeta" style="left:6.6%;top:9.733%;width:50.625%;height:4%;"></div>
+    <div class="txt garamond lead box" style="left:5.925%;top:19.333%;width:51.75%;height:15.733%;">The answer is&hellip;</div>
+    <div class="line divider-line box" style="left:6.6%;top:40.133%;width:36.15%;"></div>
+    <div class="txt garamond answer-name box" id="ansName" style="left:6.3%;top:44.533%;width:51.15%;height:16.267%;"></div>
+    <div class="txt tag box" id="ansTag" style="left:6.6%;top:63.733%;width:51.9%;height:5.6%;"></div>
+
+    <div class="txt award-heading box" style="left:6.6%;top:70.2%;width:50%;height:3%;">Who got it right?</div>
+    <div class="award-row box" id="awardRow" style="left:6.6%;top:74%;width:52%;height:6%;"></div>
+
+    <button class="pill back-btn box" id="backFromAnswerBtn" style="left:6.525%;top:81.5%;width:24.375%;height:7.467%;">Back to Board</button>
+
+    <div class="line footer-line box" style="left:5.4%;top:90.533%;width:89.175%;"></div>
+    <div class="txt footer-text box" style="left:5.55%;top:91.467%;width:26.25%;height:3.6%;">Namma Deepavali</div>
+    <div class="txt right footer-text box" id="ansNum" style="left:91.35%;top:91.467%;width:3.075%;height:3.6%;"></div>
   </div>
+
+  <!-- ============ CLOSING SCREEN ============ -->
+  <div class="slide bg-title" id="screen-closing">
+    <div class="card frame"></div>
+    <img class="art mandala-center box" src="assets/mandala.png" />
+
+    <div class="txt center kicker box" style="left:20.475%;top:20.133%;width:59.25%;height:4.133%;">KS &times; MS &times; TS / NAMMA DEEPAVALI</div>
+    <div class="txt garamond center wellplayed box" style="left:10.125%;top:32.667%;width:79.725%;height:20.267%;">Well played!</div>
+
+    <div class="line divider-line box" style="left:33.825%;top:59.333%;width:32.25%;"></div>
+    <div class="dot box" style="left:49.62%;top:58.787%;width:0.675%;height:1.2%;"></div>
+    <div class="dot box" style="left:48.825%;top:58.933%;width:0.45%;height:0.8%;"></div>
+    <div class="dot box" style="left:50.625%;top:58.933%;width:0.45%;height:0.8%;"></div>
+
+    <div class="txt garamond center thanks box" style="left:18.225%;top:64.4%;width:63.675%;height:9.333%;">Thanks for playing along</div>
+    <div class="txt center sangams box" style="left:8.175%;top:80.667%;width:83.625%;height:4.133%;">TAMIL SANGAM &bull; MALAYALEE SOCIETY &bull; KANNADA SANGHA</div>
+
+    <img class="art lotus-left box" src="assets/lotus.png" />
+    <img class="art lotus-right box" src="assets/lotus.png" />
+
+    <button class="pill restart-btn box" id="restartBtn" style="left:38%;top:88%;width:24%;height:6%;">Play Again</button>
+  </div>
+
 </div>
 
 <script src="data.js"></script>
