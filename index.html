@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Namma Jeopardy! — Deepavali Edition</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=EB+Garamond:ital,wght@0,500;1,500&display=swap');
+
+:root { --u: min(1vw, 1.7778vh); }
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; overflow: hidden; background: #0a0215; }
+body { display: flex; align-items: center; justify-content: center; font-family: 'Inter', system-ui, sans-serif; }
+
+.slide {
+  position: relative;
+  width: calc(var(--u) * 100);
+  height: calc(var(--u) * 56.25);
+  overflow: hidden;
+  background-image: url('jeopardy/assets/bg-title.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.box { position: absolute; }
+img.art { position: absolute; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+
+.frame {
+  left: 2.475%; top: 3.867%; width: 95.025%; height: 92.133%;
+  background: #2d0a55;
+  border: calc(var(--u) * 0.1144) solid #ffd060;
+  border-radius: calc(var(--u) * 0.6);
+}
+
+.line { position: absolute; background: #ffd060; height: calc(var(--u) * 0.1197); }
+.dot { position: absolute; background: #ffd060; border-radius: 50%; }
+
+.txt { position: absolute; text-align: center; line-height: 1.15; }
+.garamond { font-family: 'EB Garamond', serif; line-height: 1.2; }
+
+.eyebrow { font-weight: 700; letter-spacing: 0.3em; color: #ffe4a4; font-size: calc(var(--u) * 1.354); }
+.namma { font-weight: 800; color: #fff7e8; font-size: calc(var(--u) * 1.771); letter-spacing: 0.04em; }
+.script-title { font-weight: 500; color: #ffe4a4; font-size: calc(var(--u) * 8.646); }
+.divider { height: calc(var(--u) * 0.1249); }
+.tagline { font-style: italic; color: #fff7e8; font-size: calc(var(--u) * 2.1875); }
+.pillbar { background: #230443; border-radius: calc(var(--u) * 2); }
+.pillbar-text { font-weight: 700; letter-spacing: 0.1em; color: #fff7e8; font-size: calc(var(--u) * 1.146); display: flex; align-items: center; justify-content: center; }
+.sub-languages { font-weight: 500; letter-spacing: 0.08em; color: #ffe4a4; font-size: calc(var(--u) * 1.667); }
+
+.start-btn {
+  display: flex; align-items: center; justify-content: center;
+  background: #ffd060; color: #2d0a55; text-decoration: none;
+  font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  border-radius: calc(var(--u) * 3);
+  font-size: calc(var(--u) * 1.4);
+  box-shadow: 0 0 calc(var(--u) * 1.5) rgba(255, 208, 96, 0.45);
+  transition: filter 0.12s ease;
+}
+.start-btn:hover { filter: brightness(1.1); }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="box frame"></div>
+  <div class="box line" style="left:3.675%;top:6.267%;width:18.075%;"></div>
+  <div class="box line" style="left:78.225%;top:6.267%;width:18.075%;"></div>
+  <img class="art box" src="jeopardy/assets/mandala.png" style="left:1.875%;top:7.467%;width:18.45%;height:32.8%;" />
+  <img class="art box" src="jeopardy/assets/mandala.png" style="left:79.425%;top:7.467%;width:18.45%;height:32.8%;" />
+  <img class="art box" src="jeopardy/assets/lotus.png" style="left:41.1%;top:1.733%;width:18%;height:18.56%;" />
+
+  <div class="txt eyebrow box" style="left:28.2%;top:21.067%;width:43.5%;height:4.133%;">TS &times; MS &times; KS</div>
+  <div class="txt namma box" style="left:15%;top:27.6%;width:69.975%;height:7.333%;">NAMMA</div>
+  <div class="txt garamond script-title box" style="left:10.725%;top:32.667%;width:78.6%;height:18%;">Jeopardy!</div>
+
+  <div class="box line divider" style="left:30.6%;top:53.733%;width:38.775%;"></div>
+  <div class="box dot" style="left:49.657%;top:53.187%;width:0.675%;height:1.2%;"></div>
+  <div class="box dot" style="left:48.862%;top:53.333%;width:0.45%;height:0.8%;"></div>
+  <div class="box dot" style="left:50.663%;top:53.333%;width:0.45%;height:0.8%;"></div>
+
+  <div class="txt garamond tagline box" style="left:15.75%;top:56.8%;width:68.475%;height:6.667%;">The ultimate South Indian culture showdown</div>
+
+  <div class="box pillbar" style="left:25.5%;top:68.4%;width:48.975%;height:6.933%;"></div>
+  <div class="txt pillbar-text box" style="left:26.625%;top:68.933%;width:46.725%;height:5.867%;">MOVIES &bull; MUSIC &bull; FOOD &bull; CULTURE</div>
+  <div class="txt sub-languages box" style="left:30%;top:77.733%;width:39.975%;height:5.733%;">TAMIL &times; KANNADA &times; MALAYALAM</div>
+
+  <img class="art box" src="jeopardy/assets/diya.png" style="left:6.225%;top:68.8%;width:12.525%;height:17.368%;" />
+  <img class="art box" src="jeopardy/assets/diya.png" style="left:81.3%;top:68.8%;width:12.525%;height:17.368%;" />
+
+  <a class="start-btn box" href="jeopardy/" style="left:40%;top:88%;width:20%;height:6.5%;">Start Game</a>
+</div>
+</body>
+</html>

@@ -134,7 +134,6 @@ function awardPoints(teamId, value) {
 }
 
 // ---- nav buttons ----
-document.getElementById("startBtn").addEventListener("click", () => showScreen("screen-board"));
 document.getElementById("revealBtn").addEventListener("click", revealAnswer);
 document.getElementById("backFromAnswerBtn").addEventListener("click", () => showScreen("screen-board"));
 document.getElementById("boardFinishBtn").addEventListener("click", () => showScreen("screen-closing"));
@@ -146,7 +145,7 @@ document.getElementById("restartBtn").addEventListener("click", () => {
   saveState();
   renderBoard();
   renderScoreboard();
-  showScreen("screen-title");
+  showScreen("screen-board");
 });
 
 // ---- lightweight reset confirm (not part of the original deck, kept minimal) ----

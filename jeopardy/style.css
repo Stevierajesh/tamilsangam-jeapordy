@@ -113,33 +113,6 @@ img.art {
 .pill.static { cursor: default; }
 .pill.static:hover { filter: none; }
 
-/* ============ TITLE SCREEN ============ */
-#screen-title .frame {
-  left: 2.475%; top: 3.867%; width: 95.025%; height: 92.133%;
-  background: var(--purple-deep);
-  border-color: var(--gold);
-  border-width: calc(var(--u) * 0.1144);
-  border-radius: calc(var(--u) * 0.6);
-}
-#screen-title .topline { height: calc(var(--u) * 0.1197); }
-#screen-title .eyebrow { font-weight: 700; letter-spacing: 0.3em; color: var(--gold-light); font-size: calc(var(--u) * 1.354); }
-#screen-title .namma { font-weight: 800; color: var(--cream-bright); font-size: calc(var(--u) * 1.771); letter-spacing: 0.04em; }
-#screen-title .script-title { font-weight: 500; color: var(--gold-light); font-size: calc(var(--u) * 8.646); }
-#screen-title .divider { height: calc(var(--u) * 0.1249); }
-#screen-title .tagline { font-style: italic; color: var(--cream-bright); font-size: calc(var(--u) * 2.1875); }
-#screen-title .pillbar { background: #230443; border-radius: calc(var(--u) * 2); }
-#screen-title .pillbar-text { font-weight: 700; letter-spacing: 0.1em; color: var(--cream-bright); font-size: calc(var(--u) * 1.146); }
-#screen-title .sub-languages { font-weight: 500; letter-spacing: 0.08em; color: var(--gold-light); font-size: calc(var(--u) * 1.667); }
-#screen-title .start-btn {
-  background: var(--gold);
-  color: var(--purple-deep);
-  border: none;
-  border-radius: calc(var(--u) * 3);
-  font-size: calc(var(--u) * 1.4);
-  letter-spacing: 0.08em;
-  box-shadow: 0 0 calc(var(--u) * 1.5) rgba(255, 208, 96, 0.45);
-}
-
 /* ============ BOARD SCREEN ============ */
 #screen-board .frame1 { left: 3%; top: 5.467%; width: 93.975%; height: 88.533%; background: var(--purple-deep); border-color: var(--gold); border-width: calc(var(--u) * 0.1144); border-radius: calc(var(--u) * 0.6); }
 #screen-board .frame2 { left: 5.25%; top: 9.333%; width: 89.475%; height: 76.4%; background: var(--purple-deep); border-color: var(--gold); border-width: calc(var(--u) * 0.1718); border-radius: calc(var(--u) * 0.4); }
