@@ -50,11 +50,49 @@ function renderScoreboard() {
     lbl.className = "lbl";
     lbl.textContent = team.name;
     const score = document.createElement("span");
+    score.className = "score-value";
     score.textContent = state.scores[team.id] || 0;
     chip.appendChild(lbl);
     chip.appendChild(score);
+    chip.addEventListener("click", () => editScore(team.id, chip, score));
     el.appendChild(chip);
   });
+}
+
+function editScore(teamId, chip, scoreEl) {
+  if (chip.querySelector("input")) return;
+
+  const current = state.scores[teamId] || 0;
+  const input = document.createElement("input");
+  input.type = "text";
+  input.inputMode = "numeric";
+  input.className = "score-edit-input";
+  input.value = current;
+  chip.replaceChild(input, scoreEl);
+  input.focus();
+  input.select();
+
+  let done = false;
+  const commit = () => {
+    if (done) return;
+    done = true;
+    const val = parseInt(input.value, 10);
+    state.scores[teamId] = isNaN(val) ? current : val;
+    saveState();
+    renderScoreboard();
+  };
+  const cancel = () => {
+    if (done) return;
+    done = true;
+    renderScoreboard();
+  };
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") { e.preventDefault(); commit(); }
+    else if (e.key === "Escape") { e.preventDefault(); cancel(); }
+  });
+  input.addEventListener("blur", commit);
+  input.addEventListener("click", (e) => e.stopPropagation());
 }
 
 function renderBoard() {

@@ -227,6 +227,22 @@ img.art {
   cursor: pointer;
 }
 .score-chip .lbl { color: var(--gold-light); }
+.score-chip:hover { border-color: var(--gold-light); background: rgba(135, 51, 186, 0.5); }
+
+.score-edit-input {
+  width: 3em;
+  background: rgba(10, 2, 21, 0.55);
+  border: none;
+  outline: calc(var(--u) * 0.05) solid var(--gold-light);
+  outline-offset: calc(var(--u) * 0.1);
+  border-radius: calc(var(--u) * 0.6);
+  color: var(--cream);
+  font-weight: 700;
+  font-size: inherit;
+  font-family: inherit;
+  text-align: center;
+  padding: calc(var(--u) * 0.1) 0;
+}
 
 /* ============ CLUE SCREEN ============ */
 #screen-clue .outer { left: 2.4%; top: 4%; width: 95.175%; height: 92%; border-color: var(--gold); border-width: calc(var(--u) * 0.1353); border-radius: calc(var(--u) * 0.5); }
